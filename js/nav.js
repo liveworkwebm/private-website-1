@@ -15,13 +15,10 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Inject current date into footer
-const now = new Date();
-const year = now.getFullYear();
-const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+// Editorial last-updated date (update manually when content changes)
+const LAST_UPDATED = 'June 2026';
+document.querySelectorAll('#last-updated').forEach(el => { el.textContent = LAST_UPDATED; });
 
-const lastUpdated = document.getElementById('last-updated');
-if (lastUpdated) lastUpdated.textContent = `${months[now.getMonth()]} ${year}`;
-
+// Footer copyright year — dynamic
 const footerYear = document.getElementById('footer-year');
-if (footerYear) footerYear.textContent = year;
+if (footerYear) footerYear.textContent = new Date().getFullYear();
